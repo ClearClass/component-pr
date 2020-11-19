@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Перечень элементов</title>
+      <style>
+         .center {
+            text-align: center;
+         }
+         .dark {
+            background-color: #d4c9c1;
+         }
+      </style>
+   </head>
+   <body>
+      <b>Перечень элементов:</b> Изделие <b th:utext="${item}">...</b>, Прибор <b th:utext="${unit}">...</b> 
+      <br/>
+      <br/>
+      <table border="0" cellspacing="2" bgcolor="#000000">
+         <tr bgcolor="#FFFFFF">
+            <th width = "100">Поз. обозна-<br/>чение</th>
+            <th width = "400">Наименование</th>
+            <th width = "50" >Кол.</th>
+            <th width = "100">Примечание</th>
+         </tr>
+         <tr bgcolor="#FFFFFF" th:each ="row : ${rows}">
+            <td align="center" height="20" th:utext="${row.refdes}">...</td>
+            <td th:utext="${row.name}" th:class="${row.isCenter}? 'center' : ''">...</td>
+            <td align="center" th:utext="${row.amount}">...</td>
+            <td></td>
+         </tr>
+      </table>
+   </body>
+</html>

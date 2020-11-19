@@ -1,0 +1,148 @@
+<html>
+   <head>
+      <meta charset="utf-8">
+      <style>
+         table.tbl {
+            width:518.35pt;
+            border-collapse:collapse;
+            table-layout: fixed;
+         }
+
+         tr.header {
+            height:42.55pt;
+            text-align:center;
+         }
+
+         td.colmn1h {
+            width:72.4pt;
+            border-top:none;
+            border-left:none;
+            border-bottom:solid black 1.5pt;
+            border-right:solid windowtext 1.5pt;
+            padding:0cm 0pt 0cm 0pt;
+         }
+
+         td.colmn2h {
+            width:255.0pt;
+            border-top:none;
+            border-left:none;
+            border-bottom:solid black 1.5pt;
+            border-right:solid black 1.5pt;
+            padding:0cm 0cm 0cm 5.4pt;
+         }   
+
+         td.colmn3h {
+            width:35.05pt;
+            border-top:none;
+            border-left:none;
+            border-bottom:solid black 1.5pt;
+            border-right:solid black 1.5pt;
+            padding:0cm 0.4pt 0cm 0.4pt;
+         }
+
+         td.colmn4h {
+            width:155.9pt;
+            border:none;
+            border-bottom:solid black 1.5pt;
+            padding:0cm 0.1pt 0cm 5.4pt;
+         }
+
+         tr.regular {
+            height:21.75pt;
+         }
+
+         td.colmn1 {
+            border-top:none;
+            border-left:none;
+            border-bottom:solid black 1.0pt;
+            border-right:solid windowtext 1.5pt;
+            padding:0cm 0pt 0cm 0pt;
+            text-align:center;
+         }
+
+         td.colmn2 {
+            border-top:none;
+            border-left:none;
+            border-bottom:solid black 1.0pt;
+            border-right:solid black 1.5pt;
+            padding:0cm 0pt 0cm 5.4pt;
+            text-align:left;
+
+         }
+
+         td.colmn3 {
+            border-top:none;
+            border-left:none;
+            border-bottom:solid black 1.0pt;
+            border-right:solid black 1.5pt;
+            padding:0cm 5.4pt 0cm 5.4pt;
+            text-align:center;
+         }
+
+         td.colmn4 {
+            border:none;
+            border-bottom:solid black 1.0pt;
+            padding:0cm 0pt 0cm 5.4pt;
+         }
+
+         .colr {
+            color: blue;
+         }
+
+         .centr {
+            text-align:center;
+         }
+      </style>
+   </head>
+   <body>
+      <div align="center">
+         <table class="tbl" border="0" cellspacing="0" cellpadding="0">
+            <tr class="header">
+               <td class="colmn1h">Поз.<br>обозна-<br>чение</td>
+               <td class="colmn2h">Наименование</td>
+               <td class="colmn3h">Кол.</td>
+               <td class="colmn4h">Примечание</td>
+            </tr>
+            <tr class="regular" th:each ="row : ${cmpl.firstPage}">
+               <td class="colmn1" th:utext="${row.refdes}">...</td>
+               <td class="colmn2"> <p th:class="${row.centerName}? 'centr' : ''">
+                                       <span th:utext="${row.name.name}" th:class="${row.name.extName}? 'colr' : ''">текст</span>
+                                       <span th:utext="${row.name.type==null and row.refdes!=''}? '(Не найдено)' : ${row.name.type}" th:style="${row.name.type}==null? 'color: red' : '' "></span>
+                                       <span th:utext="${row.name.spec}" th:class="${row.name.extSpec}? 'colr' : ''"></span>
+                                    </p></td>
+               <td class="colmn3" th:utext="${row.amount}">...</td>
+               <td class="colmn4" th:utext="${row.note}" colspan="2">...</td>
+            </tr>
+         </table>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+         <div th:each ="page : ${cmpl.pages}"> 
+            <table class="tbl" border="0" cellspacing="0" cellpadding="0">
+               <tr class="header">
+                  <td class="colmn1h">Поз.<br>обозна-<br>чение</td>
+                  <td class="colmn2h">Наименование</td>
+                  <td class="colmn3h">Кол.</td>
+                  <td class="colmn4h">Примечание</td>
+               </tr>
+
+               <tr class="regular" th:each ="row : ${page.rows}">
+                  <td class="colmn1" th:utext="${row.refdes}">...</td>
+                  <td class="colmn2"> <p th:class="${row.centerName}? 'centr' : ''">
+                                          <span th:utext="${row.name.name}" th:class="${row.name.extName}? 'colr' : ''">текст</span>
+                                          <span th:utext="${row.name.type==null and row.refdes!=''}? '(Не найдено)' : ${row.name.type}" th:style="${row.name.type}==null? 'color: red' : '' "></span>
+                                          <span th:utext="${row.name.spec}" th:class="${row.name.extSpec}? 'colr' : ''"></span>
+                                       </p></td>
+                  <td class="colmn3" th:utext="${row.amount}">...</td>
+                  <td class="colmn4" th:utext="${row.note}" colspan="2">...</td>
+               </tr>
+            </table>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+         </div>
+      </div>
+   </body>
+</html>

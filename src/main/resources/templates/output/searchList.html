@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Main page</title>
+   </head>
+   <body bgcolor="#c9c0bb">
+      <br/>
+      <br/>
+      <table bgcolor = "#c9c0bb" border="1">
+         <tr>
+            <th></th>
+            <th><font color="4a4446">изделие</font></th>
+            <th><font color="4a4446">прибор</font></th>
+            <th></th>
+         </tr>
+         <tr align = "left">
+            <form name="f1" action="/componentList" method="get">
+               <th>Перечень элементов (ПЭ3)</th>
+               <th><select name="item">
+                     <option th:each ="item : ${items}" th:value="${item}" th:text="${item}"></option>
+                  </select></th>
+               <th><select name="unit">
+                     <option th:each ="unit : ${units}" th:value="${unit}" th:text="${unit}"></option>
+                  </select></th>
+               <th><input type="submit" value="Создать" /></th>
+            </form>
+         </tr>
+         <tr align = "left">
+            <form name="f2" action="/specification" method="get">
+               <th>Спецификация.. поз.<input size="1" type="text" name="initpos" value="15" /></th>
+               <th><select name="item">
+                     <option th:each ="item : ${items}" th:value="${item}" th:text="${item}"></option>
+                  </select></th>
+               <th><select name="unit">
+                     <option th:each ="unit : ${units}" th:value="${unit}" th:text="${unit}"></option>
+                  </select></th>
+               <th><input type="submit" value="Создать" /></th>
+            </form>
+         </tr>
+         <tr align = "left">
+            <form name="f3" action="/сomponentSheet" method="get">
+               <th>Ведомость покупных (ВП)</th>
+               <th><select name="item">
+                     <option th:each ="item : ${items}" th:value="${item}" th:text="${item}"></option>
+                  </select></th>
+               <th></th>
+               <th><input type="submit" value="Создать" /></th>
+            </form>
+         </tr>
+      </table>
+   </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Main page</title>  
+      <link rel="stylesheet" type="text/css" href="D:/Workshop/work/component-pr/src/main/resources/static/css/pages.css"/>
+      <link rel="stylesheet" type="text/css" href="css/pages.css"/>
+      <script type="text/javascript" src="D:/Workshop/work/component-pr/src/main/resources/static/setRadioButton.js"></script>
+      <script type="text/javascript" src="/setRadioButton.js"></script>
+      <style>@import url("/css/tables.css");</style>
+   </head>
+   <body>
+      <table th:fragment="mainMenu" class="mainMenu">
+         <tr>
+            <th class="mainMenu"><a href="/">Верификация</a></th>
+            <th class="mainMenu"><a href="/searchPage">Онлайн-поиск (чип-и-дип)</a></th>
+            <th class="mainMenu"><a href="/orderPage" >Служебная на заказ</a></th>
+            <th class="mainMenu"><a href="/documentPage">Создание документации</a></th>
+            <th class="mainMenu"><a href="/help.html">Справка</a></th>
+            <th class="mainMenu"><a href="/h2" style="color:gray;">Обзор базы данных</a></th>
+         </tr>
+      </table>
+      <br/>    
+      <br/>
+      <div th:each ="item : ${items}"> 
+         <b class="itemTableHeader" th:text="${item.name} + '/'">УТП/</b>
+         <table class="itemTable">
+            <form action="/verify" method="get">
+               <input type="hidden" name="item" th:value="${item.name}"/>
+               <tr>
+                  <th class="left w1 padd">Units/sch</th>
+                  <th class="left w2 bord">
+                     <select name="unit" onclick="setRadioButton(this)">
+                        <option th:each ="unitFile : ${item.units}" th:value="${unitFile}" th:text="${unitFile}">прибор</option>
+                     </select>
+                  </th>
+                  <th><input type="radio" name="u_sel" value="true" checked/></th>
+                  <th>СС type</th>
+               </tr>
+               <tr>
+                  <th class="left w1 padd">Control/sch</th>
+                  <th class="left w2L bord">
+                     <select name="ctrl" onclick="setRadioButton(this)">
+                        <option th:each ="contrFile : ${item.contrs}" th:value="${contrFile}" th:text="${contrFile}">УЖБИ.468157.031</option>
+                     </select>
+                  </th>
+                  <th><input type="radio" name="u_sel" value="false" /></th>
+                  <th>
+                     <select name="cc_manuf">
+                        <option value="kemet">Kemet</option>
+                        <option value="murata">Murata</option>
+                        <option value="avx">AVX</option>
+                     </select> 
+                  </th>
+                  <th><input type="submit" value="Проверить"/></th>
+               </tr>    
+            </form>
+         </table>
+         <br/>
+         <br/>
+      </div>
+      <br/>
+      <table class="newItem">
+         <form action="/createItemFolder" method="post">
+            <tr>
+               <th class="padd">Новое изделие:</th>
+               <th><input type="text" name="name" style="width:60px"/></th>
+               <th><input type="submit" value="Создать каталог" style="width:120px"/></th>
+            </tr>
+         </form>
+      </table>
+   </body>
+</html>

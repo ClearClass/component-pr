@@ -1,0 +1,165 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title th:utext="${cmpl.unit} + ' ПЭ3'">..</title>
+      <link rel="stylesheet" type="text/css" href="D:/Workshop/work/component-pr/src/main/resources/static/css/tables.css"/>
+      <link rel="stylesheet" type="text/css" href="css/tables.css"/>
+   </head>
+   <body>
+      <br/>
+      <table class="tbl" border="0" cellspacing="0" cellpadding="0">
+         <tr>
+            <td class="w1"></td>
+            <td class="w2"></td>
+            <td class="w3"></td>
+            <td class="w4"></td>
+            <td class="w5"></td>
+         </tr>
+
+         <tr class="header">
+            <td class="b2222">Поз.<br>обозна-<br>чение</td>
+            <td class="b2222">Наименование</td>
+            <td class="b2222">Кол.</td>
+            <td class="b2222" colspan="2">Примечание</td>
+         </tr>
+
+         <tr class="nextline" th:each ="row : ${cmpl.firstPage}">
+            <td class="b1212 centr" th:utext="${row.refdes}">...</td>
+            <td class="b1212 padd"> <p th:class="${row.centerName}? 'centr' : ''">
+                                       <span th:utext="${row.name.name}" th:class="${row.name.extName}? 'colr' : ''">текст</span>
+                                       <span th:utext="${row.name.type==null and row.refdes!=''}? '(Не найдено)' : ${row.name.type}" th:style="${row.name.type}==null? 'color: red' : '' "></span>
+                                       <span th:utext="${row.name.spec}" th:class="${row.name.extSpec}? 'colr' : ''"></span>
+                                    </p></td>
+            <td class="b1212 centr" th:utext="${row.amount}">...</td>
+            <td class="b1212 padd" th:utext="${row.note}" colspan="2">...</td>
+         </tr>
+
+          <tr class="endline">
+            <td style="border-left:solid black 1.5pt;"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td style="border-right:solid black 1.5pt;"></td>
+         </tr>
+  
+         <tr class="noteline">
+            <td class="b2212" ></td>
+            <td class="b2222 mainNote" colspan="4" rowspan="3" th:utext="${cmpl.unit} + ' ПЭ3'">УЖБИ.</td>
+         </tr>
+
+         <tr class="noteline">
+            <td class="b1212" ></td>
+         </tr>
+
+         <tr class="noteline">
+            <td class="b1212" ></td>
+         </tr>
+
+         <tr class="noteline">
+            <td class="b2212" ></td>
+            <td class="b2222 mainNote2" rowspan="5"> <div th:utext="${cmpl.title}">Прибор 12</div>Перечень элементов</td>
+            <td class="b2222" ></td>
+            <td class="b2222" ></td>
+            <td class="b2222" ></td>
+         </tr>
+
+         <tr class="noteline">
+            <td class="b1212" ></td>
+            <td class="b2222"  ></td>
+            <td class="b2222" ></td>
+            <td class="b2222" ></td>
+         </tr>
+
+         <tr class="noteline">
+            <td class="b1212" ></td>
+            <td class="b2222" colspan="2" rowspan="3" ></td>
+            <td class="b2222"></td>
+         </tr>
+
+         <tr class="noteline">
+            <td class="b1212" ></td>
+            <td class="b2222 centr" rowspan="2">1</td>
+         </tr>
+
+         <tr class="noteline">
+            <td class="b1222"></td>
+         </tr>
+      </table>
+
+      <br/>
+      <br/>
+      <br/>
+      <br/>
+
+      <div th:each ="page : ${cmpl.pages}"> 
+         <table class="tbl" border="0" cellspacing="0" cellpadding="0">
+
+         <tr>
+            <td class="w1"></td>
+            <td class="w2"></td>
+            <td class="w3"></td>
+            <td class="w4"></td>
+            <td class="w5"></td>
+         </tr>
+
+         <tr class="header">
+            <td class="b2222">Поз.<br>обозна-<br>чение</td>
+            <td class="b2222">Наименование</td>
+            <td class="b2222">Кол.</td>
+            <td class="b2222" colspan="2">Примечание</td>
+         </tr>      
+         
+         <tr class="nextline" th:each ="row : ${page.rows}">
+            <td class="b1212 centr" th:utext="${row.refdes}">...</td>
+            <td class="b1212 padd"> <p th:class="${row.centerName}? 'centr' : ''">
+                                       <span th:utext="${row.name.name}" th:class="${row.name.extName}? 'colr' : ''">текст</span>
+                                       <span th:utext="${row.name.type==null and row.refdes!=''}? '(Не найдено)' : ${row.name.type}" th:style="${row.name.type}==null? 'color: red' : '' "></span>
+                                       <span th:utext="${row.name.spec}" th:class="${row.name.extSpec}? 'colr' : ''"></span>
+                                    </p></td>
+            <td class="b1212 centr" th:utext="${row.amount}">...</td>
+            <td class="b1212 padd" th:utext="${row.note}" colspan="2">...</td>
+         </tr>           
+               
+
+
+
+
+
+
+
+               
+               
+      
+
+            <tr class="endline">
+               <td style="border-left:solid black 1.5pt;"></td>
+               <td></td>
+               <td></td>
+               <td></td>
+               <td style="border-right:solid black 1.5pt;"></td>
+            </tr>
+
+
+            <tr class="noteline">
+               <td class="b2212"></td>
+               <td class="b2222 mainNote" colspan="3" rowspan="3" th:utext="${cmpl.unit} + ' ПЭ3'">УЖБИ.</td>
+               <td class="b2222"></td>
+            </tr>
+
+            <tr class="noteline">
+               <td class="b1222"></td>
+               <td class="b2222 centr" rowspan = "2" th:utext="${page.num}">2</td>
+            </tr>
+
+            <tr class="noteline">
+               <td class="b2222"></td>
+            </tr>
+         </table>
+         <br/>
+         <br/>
+         <br/>
+         <br/>
+      </div>
+   </body>
+</html>

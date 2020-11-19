@@ -1,0 +1,78 @@
+body {
+   background-color:#c9c0bb;
+}
+
+table.mainMenu {
+   border-collapse:collapse; /*убираем пустые промежутки между ячейками*/
+   text-align: left;
+   margin: 2px 0px 0px 0px;
+}
+
+th.mainMenu {
+   border: 2px solid gray; /* Рамка вокруг ячеек */
+   padding:1.5pt 7pt 1.5pt 4pt;
+}
+
+a {
+   color: #122faa;
+}
+
+table.subMenu {
+   border-collapse:collapse;
+   text-align: left;
+   margin: 8px 0px 0px 50px;
+   font-size: 90%;
+}
+
+th.subMenu {
+   padding:1pt 7pt 1pt 4pt;
+   border-top:none;
+   border-left:solid gray 1.5pt;
+   border-bottom:solid gray 1.5pt;
+   border-right:solid gray 1.5pt;
+}
+
+.itemTableHeader {
+   color: #4a4446;
+   font-family:Tahoma;
+   font-size:17px;
+}
+
+table.itemTable {
+   background-color:#957b8d;
+   color: #302d2e;
+   font-family:Tahoma;
+   font-size: 13px;
+}
+
+th.left {
+   text-align: left;
+}
+
+th.bord {
+   border: 1px solid;
+}
+
+th.padd {
+   padding:0pt 0pt 0pt 6pt;
+}
+
+th.w1 {
+   width:70pt;
+}
+
+th.w2 {
+   width:105pt;
+}
+
+th.w2L {
+   width:150pt;
+}
+
+table.newItem {
+   color: #4a4446;
+   font-family:Tahoma;
+   font-weight:900;
+   font-size:13px;
+   background-color:#82756c;
+}

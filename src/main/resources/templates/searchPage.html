@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Main page</title>
+      <link rel="stylesheet" type="text/css" href="D:/Workshop/work/component-pr/src/main/resources/static/css/pages.css"/>
+      <link rel="stylesheet" type="text/css" href="css/pages.css"/>
+      <style>
+         .menu {
+            text-align: left;
+         }
+         .dark {
+            background-color: #d4c9c1;
+         }
+         .gray {
+            color: #696969;
+         }
+      </style>
+   </head>
+   <body>
+      <div th:insert="~{/index :: menu}"></div>
+      <br/>
+      <table bgcolor = "#c9c0bb" border="1">
+         <tr>
+            <th><font color="4a4446">изделие</font></th>
+            <th><font color="4a4446">прибор</font></th>
+            <th></th>
+         </tr>
+         <form name="f1" action="/searchList" method="get">
+            <tr align = "left">       
+               <th><select name="item">
+                     <option th:each ="item : ${items}" th:value="${item}" th:text="${item}"></option>
+                  </select></th>
+               <th><select name="unit">
+                     <option th:each ="unit : ${units}" th:value="${unit}" th:text="${unit}"></option>
+                  </select></th>
+               <th></th>
+            </tr>
+
+            <tr align = "left">       
+               <th colspan="2" height="20"><font color="4a4446"></font></th>
+               <td></td>
+            </tr>
+
+            <tr align = "center">       
+               <th colspan="2"><font color="4a4446">настройки поиска</font></th>
+               <th></th>
+            </tr>
+
+            <tr align = "center">       
+               <td align = "left" width="200"><input type="radio" name="riot"  value="T" checked/> обычный поиск  </td>
+               <td align = "left" width="200"><input type="radio" name="riot"  value="A" /> расширенный поиск</td>
+               <td></td>
+            </tr>
+
+            <tr align = "center">
+               <td align = "left" width="400" colspan="2"><input type="checkbox" name="color_1" value="black" /> не показывать позиции "Под заказ"   </td>
+               <td> </td>
+               <td></td>
+            </tr>
+
+
+
+
+            <tr align = "left">       
+               <td colspan="2"><font color="4a4446"><i>Керамические чип-конденсаторы</i></font></td>
+               <td></td>
+            </tr> 
+
+            <tr align = "left">       
+               <td align = "left" width="400" colspan="2">
+                  <input type="radio" name="riot1"  value="T" checked/> Kemet  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                  <input type="radio" name="riot1"  value="T" /> Murata (GRM) &nbsp; &nbsp; &nbsp; &nbsp;
+                  <input type="radio" name="riot1"  value="A" /> AVX
+               </td>
+               <td align = "left"></td>
+               <td><input type="submit" value="Поиск" style="width:90px"/></td>
+            </tr>
+
+
+
+
+         </form>
+
+      </table>
+
+
+
+   </body>
+</html>

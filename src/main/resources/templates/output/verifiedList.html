@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title th:utext="${cmpl.unit} + ' ПЭ3'">..</title>
+      <link rel="stylesheet" type="text/css" href="D:/Workshop/work/component-pr/src/main/resources/static/css/verify.css"/>
+      <link rel="stylesheet" type="text/css" href="css/verify.css"/>
+   </head>
+   <body>
+      <br/>
+      
+      BLOCK_SVK.sch - децимальный номер не установлен
+ BLOCK_SVK.sch - децимальный номер (УЖБИ.468157.031) не соответствует заданному шаблону (XXX..000..000)
+      
+      BLOCK_SVK.sch - ошибок не обнаружено
+      
+
+      <br/>
+<br/>
+
+
+         <table class="tbl" border="0" cellspacing="0" cellpadding="0">
+
+
+
+         <tr class="header">
+            <td class="w1">RefDes</td>
+            <td class="w2">Type</td>
+            <td class="w3">Value /<br>Обозначение</td>
+            <td class="w4">ТУ /<br>Manufacturer</td>
+            <td class="w5">Статус</td>
+            <td class="w6">Пояснение</td>
+         </tr>      
+         
+         
+        
+		  
+		  
+		  
+		   
+		  
+         
+  
+         
+         
+         
+         <tr class="line" th:each ="row : ${page.rows}">
+            <td class="b1212 centr" th:utext="${row.refdes}">...</td>
+            <td class="b1212 padd"> <p th:class="${row.centerName}? 'centr' : ''">
+                                       <span th:utext="${row.name.name}" th:class="${row.name.extName}? 'colr' : ''">текст</span>
+                                       <span th:utext="${row.name.type}" th:style="${row.name.type}=='(Не найдено)'? 'color: red' : '' "></span>
+                                       <span th:utext="${row.name.spec}" th:class="${row.name.extSpec}? 'colr' : ''"></span>
+                                    </p></td>
+            <td class="b1212 centr" th:utext="${row.amount}">...</td>
+            <td class="b1212 padd" th:utext="${row.note}" colspan="2">...</td>
+         </tr>           
+               
+
+
+
+
+
+
+
+               
+               
+      
+
+           
+
+
+            <tr class="noteline">
+               <td class="b2212"></td>
+               <td class="b2222 mainNote" colspan="3" rowspan="3" th:utext="${cmpl.unit} + ' ПЭ3'">УЖБИ.</td>
+               <td class="b2222"></td>
+            </tr>
+
+            <tr class="noteline">
+               <td class="b1222"></td>
+               <td class="b2222 centr" rowspan = "2" th:utext="${page.num}">2</td>
+            </tr>
+
+            <tr class="noteline">
+               <td class="b2222"></td>
+            </tr>
+         </table>
+
+     
+   </body>
+</html>

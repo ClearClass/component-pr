@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Ведомость покупных</title>
+      <style>
+         .newCategory {
+            text-align: center;
+            font-weight: bold;
+         }
+         .dark {
+            background-color: #d4c9c1;
+         }
+      </style>
+   </head>
+   <body>
+      <b>Ведомость покупных:</b> Изделие <b th:utext="${item}">...</b>
+      <br/>
+      <br/>
+      <table border="0" cellspacing="2" bgcolor="#000000">
+         <tr bgcolor="#FFFFFF">
+            <th width = "20" rowspan = "2">№</th>
+            <th width = "200" rowspan = "2">Наименование</th>
+            <th width = "200" rowspan = "2">Обозначение документа<br/>на поставку</th>
+            <th width = "200" rowspan = "2">Куда входит <br/>(обозначение)</th>
+            <th width = "220" colspan = "4">Количество</th>
+         </tr>
+         <tr bgcolor="#FFFFFF">
+            <td width = "55" align="center">на из-<br/>делие</td>
+            <td width = "55" align="center">в комп-<br/>лекты</td>
+            <td width = "55" align="center">на ре-<br/>гулир</td>
+            <td width = "55" align="center">Всего</td>
+         </tr>
+         <tr th:class="${row.isDark}? 'dark' : ''" bgcolor="#FFFFFF" th:each ="row : ${rows}">
+            <td height="20" align="center" th:utext="${row.rnum}">...</td>
+            <td th:utext="${row.name}" th:class="${row.isNewCategory}? 'newCategory' : ''">...</td>
+            <td th:utext="${row.spec}">...</td>
+            <td height="20" th:utext="${row.unit}">...</td>
+            <td height="20" align="center" th:utext="${row.amount1}">...</td>
+            <td></td>
+            <td></td>
+            <td align="center" th:utext="${row.amount2}" th:style="${row.bold2}? 'font-weight:bold' : ''">...</td>
+         </tr>
+      </table>
+   </body>
+</html>

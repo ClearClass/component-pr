@@ -1,0 +1,58 @@
+table.tbl {
+   border-collapse:collapse;
+   table-layout: fixed;
+}
+
+tr.header td{
+   height:30pt;
+   text-align:center;
+   border:solid black 1.0pt;
+   background-color: #ffff66;
+}  
+
+td.w1 {
+   width:40pt;
+}
+
+td.w2 {
+   width:100pt;
+}
+
+td.w3 {
+   width:80pt;
+}
+
+td.w4 {
+   width:125pt;
+}
+
+td.w5 {
+   width:50pt;
+}      
+
+td.w6 {
+   width:90pt;
+}  
+
+tr.nextline {
+   height:18pt;
+}
+
+td.padd {
+   padding:0cm 5.4pt 0cm 5.4pt;
+}
+
+.centr {
+   text-align: center;
+}
+
+.colr {
+  color: blue;
+}
+
+tr.noteline {
+   height:12pt;
+}
+
+ 
+

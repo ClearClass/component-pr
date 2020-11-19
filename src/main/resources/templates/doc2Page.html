@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <title>Спецификация</title>
+      <link rel="stylesheet" type="text/css" href="D:/Workshop/work/component-pr/src/main/resources/static/css/pages.css"/>
+      <link rel="stylesheet" type="text/css" href="css/pages.css"/>
+      <style>
+         .newCategory {
+            text-align: center;
+            font-weight: bold;
+         }
+         .dark {
+            background-color: #d4c9c1;
+         }
+      </style>
+   </head>
+   <body>
+      <b>Спецификация:</b> Изделие <b th:utext="${item}">...</b>, Прибор <b th:utext="${unit}">...</b> 
+      <br/>
+      <br/>
+      <table border="0" cellspacing="2" bgcolor="#000000">
+         <tr bgcolor="#FFFFFF">
+            <th width = "20" >Поз.</th>
+            <th width = "200">Обозначение</th>
+            <th width = "230">Наименование</th>
+            <th width = "20" >Кол.</th>
+            <th width = "80" >Примечание</th>
+         </tr>
+         <tr bgcolor="#FFFFFF" th:each ="row : ${rows}">
+            <td height="20" align="center" th:utext="${row.pos}">...</td>
+            <td></td>
+            <td th:utext="${row.name}">...</td>
+            <td align="center" th:utext="${row.amount}">...</td>
+            <td th:utext="${row.note}">...</td>
+         </tr>
+      </table>
+   </body>
+</html>
+
+
+
+         <tr align = "left">
+            <form name="f2" action="/specification" method="get">
+               <th>Спецификация.. поз.<input size="1" type="text" name="initpos" value="15" /></th>
+               <th><select name="item">
+                     <option th:each ="item : ${items}" th:value="${item}" th:text="${item}"></option>
+                  </select></th>
+               <th><select name="unit">
+                     <option th:each ="unit : ${units}" th:value="${unit}" th:text="${unit}"></option>
+                  </select></th>
+               <th><input type="submit" value="Создать" /></th>
+            </form>
+         </tr>

@@ -1,0 +1,88 @@
+table.tbl {
+   border-collapse:collapse;
+   table-layout: fixed;
+}
+
+tr.header {
+   height:42.55pt;
+   text-align:center;
+}  
+
+td.w1 {
+   width:70pt;
+}
+
+td.w2 {
+   width:255pt;
+}
+
+td.w3 {
+   width:40pt;
+}
+
+td.w4 {
+   width:125pt;
+}
+
+td.w5 {
+   width:30pt;
+}       
+
+tr.nextline {
+   height:18pt;
+}
+
+td.padd {
+   padding:0cm 5.4pt 0cm 5.4pt;
+}
+
+.centr {
+   text-align: center;
+}
+
+.colr {
+  color: blue;
+}
+
+tr.endline {
+   height:25pt;
+}
+
+tr.noteline {
+   height:12pt;
+}
+
+.b2222 {
+   border:solid black 1.5pt;
+} 
+
+.b2212 {
+   border-top:solid black 1.5pt;
+   border-left:solid black 1.5pt;
+   border-bottom:solid black 1.0pt;
+   border-right:solid windowtext 1.5pt;
+}
+
+.b1212 {
+   border-top:solid black 1.0pt;
+   border-left:solid black 1.5pt;
+   border-bottom:solid black 1.0pt;
+   border-right:solid windowtext 1.5pt; 
+}
+
+.b1222 {
+   border-top:solid black 1.0pt;
+   border-left:solid black 1.5pt;
+   border-bottom:solid black 1.5pt;
+   border-right:solid windowtext 1.5pt;
+}  
+
+.mainNote {
+  text-align: center;
+  font-size: 18pt;  
+}
+
+.mainNote2 {
+  text-align: center;
+  font-size: 14pt; 
+}
